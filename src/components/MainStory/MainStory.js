@@ -1,14 +1,8 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
+import { QUERIES } from "../../constants";
 
-const MainStory = ({
-  id,
-  title,
-  image,
-  location,
-  abstract,
-  ...delegated
-}) => {
+const MainStory = ({ id, title, image, location, abstract, ...delegated }) => {
   return (
     <Wrapper {...delegated}>
       <a href={`/story/${id}`}>
@@ -41,9 +35,23 @@ const Heading = styled.h2`
 `;
 
 const Abstract = styled.p`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
   font-size: 1rem;
   margin-bottom: 1em;
   white-space: pre-wrap;
+
+  @media ${QUERIES.tabletOnly} {
+    -webkit-line-clamp: 5;
+  }
+
+  // basically I think theres an issue with the overflow level on desktop to reach the intended designs - try and remove
+  @media ${QUERIES.laptopAndUp} {
+    // this isnt quite right maybe some sort of dynamic overflow
+    -webkit-line-clamp: 13;
+  }
 `;
 
 const Location = styled.span`

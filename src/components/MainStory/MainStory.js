@@ -44,13 +44,13 @@ const Abstract = styled.p`
   white-space: pre-wrap;
 
   @media ${QUERIES.tabletOnly} {
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 16;
   }
 
   // basically I think theres an issue with the overflow level on desktop to reach the intended designs - try and remove
   @media ${QUERIES.laptopAndUp} {
     // this isnt quite right maybe some sort of dynamic overflow
-    -webkit-line-clamp: 13;
+    -webkit-line-clamp: 10;
   }
 `;
 

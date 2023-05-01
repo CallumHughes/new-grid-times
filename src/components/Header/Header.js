@@ -76,12 +76,11 @@ const ActionGroup = styled.div`
   }
 `;
 
-const ActionGroupLaptop = styled.div`
+const ActionGroupLaptop = styled(ActionGroup)`
   display: none;
 
   @media ${QUERIES.laptopAndUp} {
     display: flex;
-    gap: 24px;
 
     /*
       FIX: Remove the inline spacing that comes with
@@ -94,14 +93,20 @@ const ActionGroupLaptop = styled.div`
 `;
 
 const MainHeader = styled(MaxWidthWrapper)`
-  display: flex;
-  align-items: center;
+  display: grid;
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
 
+
+  @media ${QUERIES.tabletOnly} {
+    margin-top: 48px;
+    margin-bottom: 72px;
+  }
+
   @media ${QUERIES.laptopAndUp} {
-    justify-content: space-between;
+    margin-top: 16px;
+    grid-template-columns: 1fr auto 1fr;
   }
 `;
 
@@ -109,10 +114,11 @@ const SubscribeGroup = styled.div`
   display: none;
 
   @media ${QUERIES.laptopAndUp} {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-    align-items: center;
+    display: grid;
+    grid-template-rows: min-content;
+    justify-self: end;
+    justify-items: center;
+    align-content: end;
     gap: 8px;
   }
 `;
